@@ -2,7 +2,9 @@ import os
 import glob
 import time
 import datetime
- 
+
+box_num = "LP01_"
+
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
  
@@ -30,9 +32,9 @@ def read_temp():
 	
 while True:
     #Open Log File
-    f=open('/mnt/usbdisk/pe25.txt','a')
     now = datetime.datetime.now()
-    timestamp = now.strftime("%m/%d/%Y %H:%M")
+    timestamp = now.strftime("%m_%d_%Y %H:%M")
+    f=open('/home/pi/' + box_num + timestamp + '.txt','a')
     outvalue = read_temp()
     data = outvalue, timestamp
     print(data)
