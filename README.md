@@ -63,4 +63,6 @@ IV. Running scripts at RPi Boot - to activate the different sensors, you will ne
 Select editor 2 (/bin/nano) by clicking 2 then Enter. After all of the text you will type in:
 
 	@reboot sudo sh data_scripts.sh &
+	
+	wait
 Type Ctrl X to save the file, Y for the filename to not be changed and reboot! Now your data scripts should be automatically executed at startup.
