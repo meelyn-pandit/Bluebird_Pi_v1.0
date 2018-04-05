@@ -29,10 +29,10 @@ raspivid -o vid.h264
 you can get a preview video.
 	B. Turning off the Camera LED - You will notice that the LED camera has a red light on that will come on when the camera is recording video. We need to turn that off to avoid disturbing the birds. One way to to do this is to type:
 	
-sudo nano /boot/config.txt
+	sudo nano /boot/config.txt
 and add:
 	
-disable_camera_led=1
+	disable_camera_led=1
 to the botttom of the page.
 	C. Install MP4Box - The PiNoir camera will only record in .h264. In order to make videos easy to analyze, we will convert the videos from .h264 to .mp4. To do this we will need to install the MP4Box library to the RPi. Connect to the internet (use an ethernet cord if you have one) and in the Terminal program type:
 	
