@@ -1,5 +1,6 @@
  #!/bin/bash
 
+# Change box_num to whatever box number you are filming at, and keep the quotation marks!
 filename="box_num"_$(date +"%m%d%y-%H%M%S")
 
 # Capture 3 hours of continuous video at 640x480 and 150kB/s bit rate into a pivideo.h264 file:
