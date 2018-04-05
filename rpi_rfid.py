@@ -11,7 +11,7 @@ while True:
 		print("Please insert a tag")
 		continue
 	else:
-		logf = open("/home/pi/rfid_logfile.txt", "a")
+		logf = open("/mnt/usbdisk/rfid_logfile.txt", "a")
 		logf.write(string[1:11] + "_" + daytime + "\n")
 		logf.close()
 		print(string[0:15] + "_" + daytime)
