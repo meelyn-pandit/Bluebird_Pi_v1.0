@@ -24,7 +24,7 @@ I. Basic Raspberry Pi Setup:
 II. Setting up the Pi Noir Camera
 	A. With your RPi off, connect the Raspberry Pi ribbon cable to the camera. The metal pins on the cable need to touch the metal pins on the camera import. If you open up the Terminal app and type the code:
 	
-raspivid -o vid.h264
+	raspivid -o vid.h264
 	
 you can get a preview video.
 	B. Turning off the Camera LED - You will notice that the LED camera has a red light on that will come on when the camera is recording video. We need to turn that off to avoid disturbing the birds. One way to to do this is to type:
