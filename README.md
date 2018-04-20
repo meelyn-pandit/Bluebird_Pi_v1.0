@@ -13,10 +13,12 @@ I. Basic Raspberry Pi Setup:
     Once the OS is installed you are free to play around with the RPi!
   
   B. Configuring the Raspberry Pi:
-    1. On the toolbar, click the Raspberry icon and go to Configure Raspberry Pi. Go to the Interfaces tab and enable:
+    1. On the toolbar, click the Raspberry icon, go to Preferences, and go to Configure Raspberry Pi. Go to the Interfaces tab and enable:
 			Camera
 			SSH
 			VNC
+			SPI
+			SCK
 			1-Wire
 			Remote GPIO
 		Click finish and reboot.
@@ -27,7 +29,7 @@ II. Setting up the Pi Noir Camera
 	raspivid -o vid.h264
 	
 you can get a preview video.
-	B. Turning off the Camera LED - You will notice that the LED camera has a red light on that will come on when the camera is recording video. We need to turn that off to avoid disturbing the birds. One way to to do this is to type:
+B. Turning off the Camera LED - You will notice that the LED camera has a red light on that will come on when the camera is recording video. We need to turn that off to avoid disturbing the birds. One way to to do this is to type:
 	
 	sudo nano /boot/config.txt
 and add:
