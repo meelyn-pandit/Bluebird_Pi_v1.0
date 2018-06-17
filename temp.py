@@ -34,7 +34,7 @@ while True:
     #Open Log File
     now = datetime.datetime.now()
     timestamp = now.strftime("%m_%d_%Y %H:%M")
-    f=open('/mnt/usbdisk/' + box_num + now.strftime("%m_%d_%y") + '_temp.txt','a')
+    f=open(box_num + now.strftime("%m_%d_%y") + '_temp.txt','a')
     outvalue = read_temp()
     data = outvalue, timestamp
     print(data)
