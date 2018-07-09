@@ -42,7 +42,7 @@ to the botttom of the page.
 wait for the program to be installed and you should be good to convert the .h264 videos to .mp4 (see video.sh script).
 
 III. Automounting USB Drives - In order to easily extract the files from the RPi, it is nice to have a USB drive attached. However, unlike regular computers, you need to manually mount the USB drives in order to save files to the drive or access the files. Fortunately, there is a way to automount the USB drive so you can access it immediately after the RPi is booted.
-	A. In the Terminal app type in:
+	In the Terminal app type in:
 	
 	sudo mkdir /mnt/usbdisk
 to make a new directory (folder) that recognizes the USB drive.
@@ -53,7 +53,7 @@ to own the new directory
 	sudo nano /etc/fstab
 to edit the fstab file
 
-	/dev/sdal	/mnt/usbdisk	vfat rw, nosuid,nodev,relatime,uid=1000,gid=1000,fmask=0022,dmask=0077	0	4
+	UUID=783E-A121	/mnt/usbdisk	vfat	auto,users,rw,uid=1000,gid=100,umask=0002	0	0
 Click Ctrl X, then y. Reboot with the USB drive in the RPi and the RPi should recognize the USB drive. You should be able to access it by typing in the Terminal:
 
 	ls /mnt/usbdisk/
