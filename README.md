@@ -68,7 +68,7 @@ Select editor 2 (/bin/nano) by clicking 2 then Enter. After all of the text you 
 
 Type Ctrl X to save the file, Y for the filename to not be changed and reboot! Now your data scripts should be automatically executed at startup.
 
-#Setting up Static IP Address
+# Setting up Static IP Address
 Reference: http://www.circuitbasics.com/how-to-set-up-a-static-ip-on-the-raspberry-pi/
 
 1. Find the default gateway IP, which is the local IP address of your network router
