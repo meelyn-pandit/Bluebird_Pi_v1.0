@@ -78,8 +78,8 @@ Reference: http://www.circuitbasics.com/how-to-set-up-a-static-ip-on-the-raspber
 Look for the Gateway column look for the default gateway IP and make sure that under the Iface column it says wlan0 in the same row. For example, my gateway ip address was 192.168.1.254.
 
 2. Find the IP addresses of the domain name servers by entering:
-
-	cat /etc/resolv.conf
+		
+		cat /etc/resolv.conf
 	
 you will see:
 	
@@ -88,10 +88,8 @@ you will see:
 Copy these IP addresses to a text editor on your computer or write them down for later.
 
 3. Adding Static IP Address. At the terminal, enter:
-	sudo nano /etc/dhcpcd.conf
 
-	
-	sudo nano /etc/dhcpcd.conf
+		sudo nano /etc/dhcpcd.conf
 
 to edit the dhcpcd.conf and add the following code to the bottom of the file:
 	
@@ -104,4 +102,5 @@ for the 	static ip_address	you will enter a number between 0-254, I use 200 beca
 Hit Ctrl X and then Y to save the changes to the dhcpcd.conf. 
 
 Reboot by typing in the terminal:
+		
 	sudo reboot
