@@ -73,8 +73,8 @@ Reference: http://www.circuitbasics.com/how-to-set-up-a-static-ip-on-the-raspber
 
 1. Find the default gateway IP, which is the local IP address of your network router
 	
-	route -ne
-	
+		route -ne
+		
 Look for the Gateway column look for the default gateway IP and make sure that under the Iface column it says wlan0 in the same row. For example, my gateway ip address was 192.168.1.254.
 
 2. Find the IP addresses of the domain name servers by entering:
