@@ -67,3 +67,39 @@ Select editor 2 (/bin/nano) by clicking 2 then Enter. After all of the text you 
 	@reboot sudo sh data_scripts.sh &
 
 Type Ctrl X to save the file, Y for the filename to not be changed and reboot! Now your data scripts should be automatically executed at startup.
+
+#Setting up Static IP Address
+Reference: http://www.circuitbasics.com/how-to-set-up-a-static-ip-on-the-raspberry-pi/
+
+1. Find the default gateway IP, which is the local IP address of your network router
+	
+	route -ne
+	
+Look for the Gateway column look for the default gateway IP and make sure that under the Iface column it says wlan0 in the same row. For example, my gateway ip address was 192.168.1.254.
+
+2. Find the IP addresses of the domain name servers by entering:
+
+	cat /etc/resolv.conf
+	
+you will see:
+	
+	nameserver 192.168.1.254
+	
+Copy these IP addresses to a text editor on your computer or write them down for later.
+
+3. Adding Static IP Address. At the terminal, enter:
+	
+	sudo nano /etc/dhcpcd.conf
+
+to edit the dhcpcd.conf and add the following code to the bottom of the file:
+	
+	interface wlan0
+	static ip_address = 192.168.1.200/24
+	static routers=192.168.1.254
+	static domain_name_servers=192.168.1.254
+for the 	static ip_address	you will enter a number between 0-254, I use 200 because there is less of a chance of having 200 devices connected to your router.
+
+Hit Ctrl X and then Y to save the changes to the dhcpcd.conf. 
+
+Reboot by typing in the terminal:
+	sudo reboot
