@@ -88,6 +88,8 @@ you will see:
 Copy these IP addresses to a text editor on your computer or write them down for later.
 
 3. Adding Static IP Address. At the terminal, enter:
+	sudo nano /etc/dhcpcd.conf
+
 	
 	sudo nano /etc/dhcpcd.conf
 
