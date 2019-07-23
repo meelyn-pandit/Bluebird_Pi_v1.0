@@ -1,18 +1,13 @@
 # Tiny Circuits Bird House
-This tutorial will guide you, step-by-step on how to build your own bird house from either the TinyCircuits Bird House Kit or from your own laser cut bird house. With this tutorial, you can livestream and save videos to YouTube, livestream to your own home network, or take a timelapse of your baby birds growing! This project is a fun activity that will hopefully get you closer to nature by observing adult and nestling birds in your own backyard! 
+This tutorial will guide you, step-by-step on how to build your own bird house completely with live streaming capabilities using a Raspberry Pi, TinyCircuits Whisker boards, and a TinyCircuits Whisker adapter.  or from your own laser cut bird house. With this tutorial, you can livestream and save videos to YouTube, livestream to your own home network, or take a timelapse of your baby birds growing! This project is a fun activity that will hopefully get you closer to nature by observing adult and nestling birds in your own backyard! 
 
 ## Basic Raspberry Pi Setup.
 
 ### Installing NOOBS Operating Software
 
-  The Raspberry Pi (RPi) runs off of a version of Linux called Raspbian. It is very similar to the standard version of Linux but comes with a graphical user interface (GUI) that is similar to your standard desktop. Many of the RPi kits that you find online will come with a micro SD card that has NOOBS pre-installed. If you are using your own micro SD card, then you will need to format the micro SD card to FAT32 by using: https://www.sdcard.org/downloads/formatter_4/. You will need to download this software to format your micro SD card.
+The Raspberry Pi (RPi) runs off of a version of Linux called Raspbian. It is very similar to the standard version of Linux but comes with a graphical user interface (GUI) that is similar to your standard desktop. Many of the RPi kits that you find online will come with a micro SD card that has NOOBS pre-installed. If you are using your own micro SD card, then you will need to format the micro SD card to FAT32 by using: https://www.sdcard.org/downloads/formatter_4/. You will need to download this software to format your micro SD card.
 
-  Once the SD card is formatted then download NOOBS by going to: https://www.raspberrypi.org/downloads/noobs/ on your own computer and download NOOBS (the regular version, not the LITE version) onto your computer by clicking the Download zip button. The download will take a while (usually 10-12 min).
-  
-    Once the download is complete, extract the files and copy them to the micro SD card.
-    After the files are copied put the SD card into the micro SD card slot on the RPi and plug in the peripherals (keyboard, mouse, Wifi dongle if you need it) and finaly plug in your power source to turn on the RPi.
-    You will see a screen asking you to install Raspbian. Click install at the top of the screen and wait until the operating system (OS) is installed.
-    Once the OS is installed you are free to play around with the RPi!
+Once the SD card is formatted then download NOOBS by going to: https://www.raspberrypi.org/downloads/noobs/ on your own computer and download NOOBS (the regular version, not the LITE version) onto your computer by clicking the Download zip button. The download will take a while (usually 10-12 min). Once the download is complete, extract the files and copy them to the micro SD card. After the files are copied put the SD card into the micro SD card slot on the RPi and plug in the peripherals (keyboard, mouse, Wifi dongle if you need it) and finaly plug in your power source to turn on the RPi. You will see a screen asking you to install Raspbian. Click install at the top of the screen and wait until the operating system (OS) is installed. Once the OS is installed you are free to play around with the RPi!
   
  ### Configuring the Raspberry Pi:
 On the toolbar, click the Raspberry icon, go to Preferences, and go to Configure Raspberry Pi. Go to the Interfaces tab and enable:
@@ -38,9 +33,11 @@ you can get a preview video.
 You will notice that the LED camera has a red light on that will come on when the camera is recording video. We need to turn that off to avoid disturbing the birds. One way to to do this is to type:
 	
 	sudo nano /boot/config.txt
+	
 and add:
 	
 	disable_camera_led=1
+	
 to the botttom of the page.
 
 ### Install MP4Box
@@ -66,15 +63,18 @@ to own the new directory
 to edit the fstab file
 
 	UUID="your unique UUID address"	/mnt/usbdisk	vfat	auto,users,rw,uid=1000,gid=100,umask=0002	0	0
+	
 Click Ctrl X, then y. Reboot with the USB drive in the RPi and the RPi should recognize the USB drive. You should be able to access it by typing in the Terminal:
 
 	ls /mnt/usbdisk/
+	
 if you see the files in there then you have access to it.
 
 ### Running scripts at RPi Boot
 To activate the different sensors, you will need to execute the scripts. Since the RPis will be headless (not connected to a monitor), we will need to have the scripts be executed as the RPi boots up. To do this we will need to install the Crontab which is used to run scheduled scripts. In the Terminal App type in:
 
 	crontab -e
+	
 Select editor 2 (/bin/nano) by clicking 2 then Enter. After all of the text you will type in:
 
 	@reboot sudo sh data_scripts.sh &
@@ -122,6 +122,7 @@ Reboot by typing in the terminal:
 
 Powering the RPi is the biggest challenge. You can either use a [RPi power cable](https://www.amazon.com/CanaKit-Raspberry-Supply-Adapter-Charger/dp/B00GF9T3I0/ref=asc_df_B00GF9T3I0/?tag=hyprod-20&linkCode=df0&hvadid=309707619534&hvpos=1o1&hvnetw=g&hvrand=11550608159140157147&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1023522&hvtargid=aud-643565131866:pla-634201303877&psc=1) or you can attempt to power the RPi remotely with a [5V battery](https://www.amazon.com/Portable-Charger-Anker-PowerCore-20100mAh/dp/B00X5RV14Y/ref=sr_1_3?keywords=anker+battery&qid=1563902722&s=electronics&sr=1-3) or a 5V battery and a solar set up (see below). If you do decide to use a battery alone, you will need to swap out the batteries every few days (20,000 mAh/300 mAh RPi current use = 66 hours). 
 
-## Putting the RPi in low power mode
+## Putting the RPi in low power mode - In Progress!
 
-## Solar Setup - In Progress!
+## Solar Setup
+[Voltaic Systems](https://www.voltaicsystems.com/blog/powering-a-raspberry-pi-from-solar-power/) has a good tutorial on how to power your RPi with solar power!
