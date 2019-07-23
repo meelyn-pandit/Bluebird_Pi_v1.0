@@ -100,9 +100,11 @@ you will see:
 	
 Copy these IP addresses to a text editor on your computer or write them down for later.
 
-## 3. Adding Static IP Address. At the terminal, enter:
+## 3. Adding Static IP Address. 
 
-`sudo nano /etc/dhcpcd.conf`
+At the terminal, enter:
+
+	sudo nano /etc/dhcpcd.conf
 
 to edit the dhcpcd.conf and add the following code to the bottom of the file:
 	
