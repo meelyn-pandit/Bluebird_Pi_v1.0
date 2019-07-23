@@ -1,4 +1,4 @@
-# TinyCircuits Bird House
+# Bluebird Pi v1.0
 Scripts for Raspberry Pi 2 Model B that will collect video, audio, and temperature data.
 
 
