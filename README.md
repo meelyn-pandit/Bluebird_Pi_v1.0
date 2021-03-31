@@ -45,7 +45,12 @@ III. Automounting USB Drives - In order to easily extract the files from the RPi
 	In the Terminal app type in:
 	
 	sudo mkdir /mnt/usbdisk
-to make a new directory (folder) that recognizes the USB drive.
+to assign an ID to the USB disk type in the terminal:
+
+	sudo ls -l /dev/disk/by-uuid/
+Your ID will be 9 character string on the line with "sda1."
+
+To make a new directory (folder) that recognizes the USB drive.
 
 	sudo chown -R pi:pi /mnt/usbdisk
 to own the new directory
@@ -53,7 +58,7 @@ to own the new directory
 	sudo nano /etc/fstab
 to edit the fstab file
 
-	UUID=783E-A121	/mnt/usbdisk	vfat	auto,users,rw,uid=1000,gid=100,umask=0002	0	0
+	UUID="your specific ID"	/mnt/usbdisk	vfat	auto,users,rw,uid=1000,gid=100,umask=0002	0	0
 Click Ctrl X, then y. Reboot with the USB drive in the RPi and the RPi should recognize the USB drive. You should be able to access it by typing in the Terminal:
 
 	ls /mnt/usbdisk/
