@@ -48,7 +48,6 @@ III. Automounting USB Drives - In order to easily extract the files from the RPi
 to assign an ID to the USB disk type in the terminal:
 
 	sudo ls -l /dev/disk/by-uuid/
-Your ID will be 9 character string on the line with "sda1."
 
 To make a new directory (folder) that recognizes the USB drive.
 
@@ -58,16 +57,16 @@ to own the new directory
 	sudo nano /etc/fstab
 to edit the fstab file
 
-	UUID="your specific ID"	/mnt/usbdisk	vfat	auto,users,rw,uid=1000,gid=100,umask=0002	0	0
+	/dev/sda1            /mnt/usbdisk vfat defaults          0 0
 Click Ctrl X, then y. Reboot with the USB drive in the RPi and the RPi should recognize the USB drive. You should be able to access it by typing in the Terminal:
 
 	ls /mnt/usbdisk/
-if you see the files in there then you have access to it.
+if you see the files in there then you have access to it. Once you automount the USB drive, the RPi will not work without the USB drive plugged in.
 
 IV. Running scripts at RPi Boot - to activate the different sensors, you will need to execute the scripts. Since the RPis will be headless (not connected to a monitor), we will need to have the scripts be executed as the RPi boots up. To do this we will need to install the Crontab which is used to run scheduled scripts. In the Terminal App type in:
 
 	crontab -e
-Select editor 2 (/bin/nano) by clicking 2 then Enter. After all of the text you will type in:
+Select editor 1 (/bin/nano) by clicking 1 then Enter. After all of the text you will type in:
 
 	@reboot sudo sh data_scripts.sh &
 
