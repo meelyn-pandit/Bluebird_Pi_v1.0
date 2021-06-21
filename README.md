@@ -51,9 +51,9 @@ to make a new directory (folder) that recognizes the USB drive.
 to own the new directory
 
 	sudo nano /etc/fstab
-to edit the fstab file
+to edit the fstab file, then enter the following on a new line before the "# a swapfile is not a swap partiition, no line here"
 
-	/dev/sdal	/mnt/usbdisk	vfat rw, nosuid,nodev,relatime,uid=1000,gid=1000,fmask=0022,dmask=0077	0	4
+	/dev/sdal	/mnt/usbdisk	vfat	defaults	0	0
 Click Ctrl X, then y. Reboot with the USB drive in the RPi and the RPi should recognize the USB drive. You should be able to access it by typing in the Terminal:
 
 	ls /mnt/usbdisk/
